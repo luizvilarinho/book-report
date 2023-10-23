@@ -6,20 +6,26 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "docker:dev": "docker-compose up",
+    "docker:restart": "docker-compose restart book-report-app"
   },
   "dependencies": {
+    "@heroicons/react": "^2.0.18",
+    "immer": "^10.0.3",
+    "next": "latest",
     "react": "latest",
-    "react-dom": "latest",
-    "next": "latest"
+    "react-dom": "latest"
   },
   "devDependencies": {
-    "typescript": "latest",
-    "@types/react": "latest",
     "@types/node": "latest",
+    "@types/react": "latest",
     "@types/react-dom": "latest",
     "autoprefixer": "latest",
+    "nodemon": "^3.0.1",
     "postcss": "latest",
-    "tailwindcss": "latest"
+    "postcss-scss": "^4.0.9",
+    "tailwindcss": "latest",
+    "typescript": "latest"
   }
 }

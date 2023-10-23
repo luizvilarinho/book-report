@@ -1,0 +1,31 @@
+version: '3'
+services:
+  book-report-app:
+    build:
+      context: .  # Substitua pelo caminho para a pasta do seu aplicativo
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - '3005:3000'  # Mapeia a porta do contêiner para a porta do host
+    volumes:
+      - ./:/app  # Mapeia a pasta do aplicativo do host para dentro do contêiner
+      - /app/node_modules
+      - /app/.next
+    environment:
+      NODE_ENV: development  # Defina a variável de ambiente NODE_ENV para "production" ou "development" conforme necessário
+      DATABASE_HOST: book_report_db
+  
+  book_report_db:
+    image: postgres
+    volumes:
+      - book_report_db:/data/book_report_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: vila@02100260
+      POSTGRES_DB: book_report_db
+    ports:
+      - '5432:5432'
+    restart: unless-stopped
+
+volumes:
+  book_report_db:
